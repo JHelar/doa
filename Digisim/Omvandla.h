@@ -2,11 +2,13 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 
 #include "Bitstr.h"
 
 using namespace std;
+/** 
+Class Omvandla, converts decimal to binary string and binary string to a decimal version of it.
+*/
 class Omvandla
 {
 public:
@@ -21,7 +23,6 @@ public:
 
 	string tal_str(int tal)
 	{
-		ostringstream oss;
 		Bitstr bitStr;
 		int n = 0;
 

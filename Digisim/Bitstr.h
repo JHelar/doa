@@ -6,6 +6,9 @@
 #include <sstream>
 
 using namespace std;
+/** 
+Class Bitstr, does the string conversion between an integer decimal number to a binary string representation.
+*/
 class Bitstr
 {
 private:

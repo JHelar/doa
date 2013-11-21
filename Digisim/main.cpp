@@ -5,6 +5,15 @@
 #include "Bitstr.h"
 #include "Bit.h"
 
+/*! \mainpage Digisim
+ *
+ * \section intro_sec Introduction
+ *
+ * Digisim converts given decimal numbers to it's binary representation and then bit add them together and displays the result in both binary and decimal. 
+ *
+ */
+
+
 int main()
 {
 	Omvandla omv;
@@ -13,21 +22,26 @@ int main()
 
 	string aS;
 	string bS;
+	string sum;
 	
-	int go = 1;
-	int a = 0;
-	int b = 0;
+	int a = 1;
+	int b = 1;
 
-	while(go != 1)
+	char ci = '0';
+
+	while( a != 0 || b != 0)
 	{
-		cout << "Enter a number: ";
+		cout << "\nEnter a number: ";
 		cin >> a;
-		cout << "Binary conversion => " << omv.tal_str(a);
+		aS = omv.tal_str(a);
+		cout << "Binary conversion => " << aS;
 		cout << "\nEnter another number: ";
 		cin >> b;
-		cout << "Binary conversion => " << omv.tal_str(b);
-		cout << "\nMultiplication of given binary numbers => " << 
-		
+		bS = omv.tal_str(b);
+		cout << "Binary conversion => " << bS;
+		sum = bit.add(aS,bS);
+		cout << "\nMultiplication of given binary numbers => "<<sum << "\nDecimal version => "<<omv.str_tal(sum);
+
 	}
 	cin.get();
 	return 0;

@@ -3,6 +3,9 @@
 #include <iostream>
 
 using namespace std;
+/** 
+Class bit, have all logic gate functions and the add function of two binary strings.
+*/
 class Bit
 {
 public:
@@ -69,11 +72,37 @@ public:
 			return '0';
 	}
 
-	void add(char a, char b, char ci, char sum, char cu)
+	string add(string a, string b)
 	{
-		sum = xor(xor(a,b),ci);
-		cu = or(and(or(a,b),ci),and(a,b));
-	}
+		string sum;
+		char ci = '0';
 
+		if (a.size() > b.size())
+		{
+			for (int i = b.size(); i < a.size(); i++)
+			{
+				b.insert(0,"0");
+			}
+		}
+		else if (a.size() < b.size())
+		{
+			for (int i = a.size(); i < b.size(); i++)
+			{
+				a.insert(0,"0");
+			}
+		}
+
+		for(int i = a.size() -1; i >= 0; i--)
+		{
+			sum += xor(xor(a[i],b[i]),ci);
+			ci = or(and(or(a[i],b[i]),ci),and(a[i],b[i]));
+		}
+
+		sum += ci;
+		sum = string(sum.rbegin(), sum.rend());
+		
+		return sum;
+	}
+	
 };
 
