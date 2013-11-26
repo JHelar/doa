@@ -1,4 +1,4 @@
-(Kayle,female,1,0,1,0,1)
+(Victoria,female,1,0,1,0,1)
 (Carla,female,0,1,1,1,0)
 (Steven,male,1,0,1,0,1)
 (Mark,male,0,1,1,1,0)
@@ -6,3 +6,5 @@
 (Lisa,female,0,0,0,1,1)
 (Mat,male,1,1,0,0,0)
 (Hans,male,0,0,0,0,1)
+(Frank,male,1,0,1,0,0)
+(Alice,female,1,0,1,0,0)

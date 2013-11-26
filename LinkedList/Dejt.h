@@ -7,6 +7,8 @@
 #include "Couple.h"
 #include "Person.h"
 
+using namespace std;
+/** Class Dejt, finds and sets the mathing couples and sorts the couples with the female name as parameter */
 class Dejt
 {
 public:

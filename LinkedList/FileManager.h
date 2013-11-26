@@ -8,6 +8,7 @@
 #include "Person.h"
 
 using namespace std;
+/** Class FileManager, simple filemanager class that reads data from a file and puts the person in its correct list. (male or female list) */
 class FileManager
 {
 public:

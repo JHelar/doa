@@ -3,16 +3,11 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 
 #include "Node.h"
-	
-/**
-*       An implementation of a single-linked list without sorting.
-*       
-*       The class contains one pointer to a node-object named the "head" of the list and
-*       one named the "tail" of the list.
-*/
-
+using namespace std;
+/** Class List, same List class as the SimpleLinkedList project but with implemented sort,pop,swap and list size functions */
 template < class T >
 class List
 {
@@ -169,8 +164,8 @@ public:
 			T tempInfo;
 
 			tempInfo = oneInfo;
-			oneInfo = anotherInfo;
-			anotherInfo = oneInfo;
+			one->info = anotherInfo;
+			another->info = tempInfo;
 		}
 
 		void sort()
@@ -179,7 +174,7 @@ public:
 			{
 				Node<T> *min = iter;
 
-				for(Node<T> *iterB = head; iterB != nullptr; iterB = iterB->next)
+				for(Node<T> *iterB = iter; iterB != nullptr; iterB = iterB->next)
 				{
 					if(iterB->info < iter->info)
 					{

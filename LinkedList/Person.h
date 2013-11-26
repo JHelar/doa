@@ -7,7 +7,7 @@
 #include "InterestTable.h"
 
 using namespace std;
-
+/** Class Person, base class inherits from the InterestTable class also have a gender and name */
 class Person: public InterestTable
 {
 private:
@@ -97,7 +97,8 @@ public:
 
 	friend bool operator < (Person one, Person another)
 	{
-		if(one.name < another.name)
+		int v = one.name.compare(another.name);
+		if(v < 0)
 			return true;
 		else
 			return false;

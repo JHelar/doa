@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-
+/** Class InterestTable, simple class with boolean data that represents the different interests a person can have */
 class InterestTable
 {
 protected:

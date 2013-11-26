@@ -6,7 +6,7 @@
 #include "List.h"
 
 using namespace std;
-
+/** Class Couple, couple class with two person objects */ 
 class Couple
 {
 private:

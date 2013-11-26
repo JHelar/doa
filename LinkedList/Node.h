@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-
+/** Class Node, simple data node class for the List class */
 template <class INFO>
 class Node
 {
