@@ -76,6 +76,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Article.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="HashData.h" />
     <ClInclude Include="Hashtable.h" />
   </ItemGroup>
