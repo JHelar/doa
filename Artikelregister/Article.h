@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "Hashtable.h"
+
 using namespace std;
 class Article
 {
@@ -39,14 +41,13 @@ public:
 
 		in >> c;
 		getline(in,article.type,',');
-		getline(in,article.name,',');
-		in >> c;
+		getline(in,article.name,')');
 		return in;
 	}
 
 	friend ostream& operator << (ostream &out, Article article)
 	{
-		out << "Type: " << article.type << "\nName: " << article.name;
+		out << "(" << article.type << "," << article.name << ")";
 		return out;
 	}
 

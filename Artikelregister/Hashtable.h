@@ -59,7 +59,7 @@ public:
 	void add(Data<KEY,INFO> data)
 	{
 		long indx = getIndex(data.key);
-		Data<KEY,INFO> temp("",0);
+		Data<KEY,INFO> temp("",INFO());
 
 		for(int i = 0; i < bucketSize; i++)
 		{
@@ -85,7 +85,7 @@ public:
 		for(auto &data : *overflow)
 		{
 			if(data.key == key)
-				return &d;
+				return &data;
 		}
 
 		return nullptr;
@@ -112,34 +112,60 @@ public:
 	
 	void remove(INFO info)
 	{
+		Data<KEY,INFO> emptyData("",INFO());
+		for(int i = 0; i < (*overflow).size(); i++)
+		{
+			if((*overflow)[i].info == info)
+			{
+				(*overflow)[i] = emptyData;
+				return;
+			}
+		}
+
 		Data<KEY,INFO> *data = this->search(info);
-		Data<KEY,INFO> emptyData
 		long indx = this->getIndex((*data).key);
 
-		(*table).erase((*table).begin() + indx);
+		(*table)[indx +1] = emptyData;
+		return;
+	}
+
+	void saveHash(ostream &out)
+	{
+		for(int i = 0; i < primeNumber; i++)
+		{
+			for(int j = 0; j < bucketSize; j++)
+			{
+				if(((*table)[i * bucketSize + j]).key != "")
+					out << ((*table)[i * bucketSize + j]).info << endl;
+			}
+		}
+		for(auto data : *overflow)
+		{
+			if(data.key != "")
+				out << data.info << endl;
+		}
 	}
 
 	string print()
 	{
 		ostringstream oss;
-		oss << "Hash contents: \n";
+
 		for(int i = 0; i < primeNumber; i++)
 		{
-			oss << "Hash table: \n";
 			for(int j = 0; j < bucketSize; j++)
 			{
-				oss << ((*table)[i * bucketSize + j]).key << ": " << ((*table)[i * bucketSize + j]).info << endl;
+				oss << ((*table)[i * bucketSize + j]).info << endl;
 			}
 		}
-
-		oss << "Overflow: \n";
 		for(auto data : *overflow)
 		{
-			oss << data.key << ": " << data.info << endl;
+			oss << data.info << endl;
 		}
-
 		return oss.str();
 	}
+
+	int getPrimeNumber(){return this->primeNumber;}
+	int getBucketSize(){return this->bucketSize;}
 
 	~Hashtable(void)
 	{

@@ -1,0 +1,6 @@
+72
+0(fisk,Janne)
+(Toy,Ball)
+(Meat,Meat)
+(Banana,Karl)
+(Type,Namn)

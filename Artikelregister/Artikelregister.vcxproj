@@ -80,6 +80,7 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="HashData.h" />
     <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="ManageHashData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

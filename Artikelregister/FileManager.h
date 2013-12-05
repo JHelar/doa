@@ -11,39 +11,50 @@
 using namespace std;
 class FileManager
 {
-private:
-	Hashtable<string, Article> HT;
 public:
 
 	FileManager(void){}
 
 	~FileManager(void){}
 
-	void ReadArticles(string fileName)
+	void ReadArticles(string fileName,Hashtable<string,Article> *HT)
 	{
-		char primeNumber;
-		char bucketSize;
+		string primeNumber;
+		string bucketSize;
+
 		ifstream myFile;
 		Article dummyArticle;
 		Article emptyArticle;
 
+		myFile.open(fileName);
+
 		myFile >> primeNumber;
 		myFile >> bucketSize;
 
-		HT.setHashTable(int(primeNumber),int(bucketSize),"",emptyArticle);
+		(*HT).setHashTable(atoi(primeNumber.c_str()),atoi(bucketSize.c_str()),"",emptyArticle);
 
-		myFile.open(fileName);
 		while(!myFile.eof())
 		{
 			myFile >> dummyArticle;
 			if(dummyArticle != emptyArticle)
 			{
-				HT.add(Data<string,Article>(dummyArticle.getName(),dummyArticle));
+				(*HT).add(Data<string,Article>(dummyArticle.getName(),dummyArticle));
 				dummyArticle = emptyArticle;
 			}
 			else if(dummyArticle == emptyArticle)
 				break;
 		}
+		myFile.close();
+	}
+
+	void SaveArticles(string fileName,Hashtable<string,Article> *HT)
+	{
+		ofstream myFile;
+		myFile.open(fileName);
+		myFile << (*HT).getPrimeNumber();
+		myFile << "\n";
+		myFile << (*HT).getBucketSize();
+		(*HT).saveHash(myFile);
 		myFile.close();
 	}
 };
