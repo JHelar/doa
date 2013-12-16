@@ -22,12 +22,12 @@ public:
 	{
 	}
 
-	PlayerData setPlayer(char moveKey)
+	void setPlayer(PlayerData *newData)
 	{
 		this->pd.xPrev = this->pd.xPos;
 		this->pd.yPos = this->pd.yPos;
-		this->setPos(moveKey);
-		return this->getPos();
+		this->setPos((*newData).moveKey);
+		(*newData) = this->pd;
 	}
 
 	void setPos(char moveKey)
@@ -45,7 +45,5 @@ public:
 			if((pd.xPos - 2) > 0)
 				pd.xPos -= 2;
 	}
-
-	PlayerData getPos(){return this->pd;}
 };
 

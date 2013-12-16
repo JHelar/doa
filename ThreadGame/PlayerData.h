@@ -8,5 +8,10 @@ struct PlayerData
 	int yPos;
 	int xPrev;
 	int yPrev;
+
+	PlayerData()
+	{
+		playerID = 0;
+	}
 };
 

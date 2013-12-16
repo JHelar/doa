@@ -77,20 +77,20 @@ public:
 		}
 	}
 
-	PlayerData mainGame(PlayerData pd)
+	void mainGame(PlayerData *pd,PlayerData playerMoveData)
 	{
-		this->setPlayer(pd);
-		PlayerData returnData;
 		if(_kbhit())
 		{
-			returnData.moveKey = this->getPlayerMoveKey();
-			returnData.playerID = this->checkPlayer(returnData.moveKey);
-			return returnData;
+			(*pd).moveKey = this->getPlayerMoveKey();
+			(*pd).playerID = this->checkPlayer((*pd).moveKey);
 		}
 		else
-			returnData.playerID = 0;
+			(*pd).playerID = 0;
+		if(playerMoveData.playerID != 0)
+		{
+			this->setPlayer(playerMoveData);
+		}
 		this->printGameField();
-		return returnData;
 	}
 
 	char getPlayerMoveKey()
@@ -112,13 +112,23 @@ public:
 	{
 		if(pd.playerID == 1)
 		{
-			gameField[pd.yPrev][pd.xPrev] = ' ';
-			gameField[pd.yPos][pd.xPos] = '1';
+			if(gameField[pd.yPos][pd.xPos] != '2')
+			{
+				gameField[pd.yPrev][pd.xPrev] = ' ';
+				gameField[pd.yPos][pd.xPos] = '1';
+			}
+			else
+				gameField[pd.yPos][pd.xPos] = 'X';
 		}
 		else if(pd.playerID == 2)
 		{
-			gameField[pd.yPrev][pd.xPrev] = ' ';
-			gameField[pd.yPos][pd.xPos] = '2';
+			if(gameField[pd.yPos][pd.xPos] != '1')
+			{
+				gameField[pd.yPrev][pd.xPrev] = ' ';
+				gameField[pd.yPos][pd.xPos] = '2';
+			}
+			else
+				gameField[pd.yPos][pd.xPos] = 'X';
 		}
 	}
 };
