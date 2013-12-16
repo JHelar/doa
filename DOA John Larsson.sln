@@ -25,7 +25,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Faculty with stack", "Facul
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Artikelregister", "Artikelregister\Artikelregister.vcxproj", "{3E3B8376-2876-4AA6-B954-109ACE4FADAB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadGame", "\\edunet\dfs\home09\ht12\johlah123\my documents\visual studio 2012\Projects\ThreadGame\ThreadGame.vcxproj", "{99C1506C-023F-46BE-ABE6-D36D3CCC4F6A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadGame", "ThreadGame\ThreadGame.vcxproj", "{99C1506C-023F-46BE-ABE6-D36D3CCC4F6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

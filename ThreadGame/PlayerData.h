@@ -6,5 +6,7 @@ struct PlayerData
 	int playerID;
 	int xPos;
 	int yPos;
+	int xPrev;
+	int yPrev;
 };
 

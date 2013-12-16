@@ -6,34 +6,27 @@
 #include "Player.h"
 
 using namespace std;
+
 int main(void)
 {
 	Game game;
-	Player p1(0,5);
-	Player p2(10,5);
+	Player p1(1,9,1);
+	Player p2(19,9,2);
 	PlayerData playerData;
 	PlayerData playerMoveData;
-	deque<PlayerData> p1Data,p2Data;
 	deque<PlayerData> playerPos;
 
+	playerData.playerID = 0;
+
 	bool go = true;
-
-
+	
 	while(go)
 	{
-		playerData = game.mainGame();
+		playerData = game.mainGame(playerPos.front());
 		if(playerData.playerID == 1)
-			p1Data.push_back(playerData);
+			playerPos.push_back(p1.setPlayer(playerData.moveKey));
 		else if(playerData.playerID == 2)
-			p2Data.push_back(playerData);
-		playerMoveData = p1Data.front();
-		p1Data.pop_front();
-		playerPos.push_back(p1.setPlayer(playerMoveData.moveKey,playerMoveData.playerID));
-		playerMoveData = p2Data.front();
-		p2Data.pop_front();
-		playerPos.push_back(p2.setPlayer(playerMoveData.moveKey,playerMoveData.playerID));
-		game.setPlayer(playerPos.front());
-		playerPos.pop_front();
+			playerPos.push_back(p2.setPlayer(playerData.moveKey));
 	}
 
 	cin.get();
